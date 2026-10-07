@@ -1,0 +1,20 @@
+{
+  "_label": "Synthetic scenario — not a client deployment. Sample business, sample approvers, sample policy.",
+  "business_name": "Sample HVAC Co (synthetic)",
+  "agent_id": "operator-agent",
+  "approvers": ["Demo Approver: Ops Lead", "Demo Approver: Owner"],
+  "max_ttl_seconds": 900,
+  "max_uses": 3,
+  "stages": ["new", "contacted", "qualified", "quoted", "won", "lost"],
+  "tools": {
+    "crm.search_contacts": {"class": "read"},
+    "crm.get_contact": {"class": "read"},
+    "crm.list_pipeline": {"class": "read"},
+    "crm.add_tag": {"class": "write"},
+    "crm.remove_tag": {"class": "write"},
+    "crm.set_stage": {"class": "write"},
+    "sms.send": {"class": "never", "kind": "outbound"},
+    "email.send": {"class": "never", "kind": "outbound"},
+    "crm.delete_contact": {"class": "never", "kind": "destructive"}
+  }
+}

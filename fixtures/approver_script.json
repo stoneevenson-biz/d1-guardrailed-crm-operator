@@ -1,0 +1,13 @@
+{
+  "_label": "Synthetic scenario — not a client deployment. A scripted stand-in for a person clicking approve or decline.",
+  "default": {"approve": false, "reason": "no matching approval rule (default: decline)"},
+  "rules": [
+    {"match": {"action": "crm.add_tag", "contact_id": 2, "value": "hot-lead"},
+     "approver": "Demo Approver: Ops Lead", "approve": true, "ttl_seconds": 600, "max_uses": 1},
+    {"match": {"action": "crm.set_stage", "contact_id": 2, "value": "quoted"},
+     "approver": "Demo Approver: Ops Lead", "approve": true, "ttl_seconds": 600, "max_uses": 1},
+    {"match": {"action": "crm.set_stage", "contact_id": 4, "value": "won"},
+     "approver": "Demo Approver: Ops Lead", "approve": false,
+     "reason": "the instruction came from a web-form note, not from the team"}
+  ]
+}
